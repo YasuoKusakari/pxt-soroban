@@ -3,9 +3,11 @@ namespace soroban {
     //% blockId=show_number block="かずを ひょうじ %num"
     export function showNumber(num: number = 0): void {
         let n = num
+        //X0列のY1234を消す
         for (let y = 1; y < 5; y++) {
             led.unplot(0, y)
         }
+        //
         if (n < 0) {
             led.plot(0, 2)
             n *= -1
@@ -22,7 +24,7 @@ namespace soroban {
                 (m > 0) ? led.plot(x, y) : led.unplot(x, y)
                 m--
             }
-            n = Math.floor(n / 10)
+            n = Math.floor(n / 10)//小数以下を切り捨て
         }
     }
 }
